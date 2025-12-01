@@ -1,2 +1,2 @@
-# SplatCo.github.io
-SplatCo.github.io
+# SplatCo-tech.github.io
+SplatCo-tech.github.io
