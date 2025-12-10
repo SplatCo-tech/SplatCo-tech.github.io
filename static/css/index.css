@@ -2,21 +2,19 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
-
 .footer .icon-link {
-    font-size: 25px;
-    color: #000;
+  font-size: 25px;
+  color: #000;
 }
 
 .link-block a {
-    margin-top: 5px;
-    margin-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .dnerf {
   font-variant: small-caps;
 }
-
 
 .teaser .hero-body {
   padding-top: 0;
@@ -27,20 +25,42 @@ body {
   font-family: 'Google Sans', sans-serif;
 }
 
+/* ============================= */
+/*        标题相关样式修改        */
+/* ============================= */
 
-.publication-title {
-  font-family: 'Google Sans', sans-serif; /* This was already here */
-  font-size: 1.5rem; /* Decrease the font size as needed */
-  white-space: nowrap; /* Prevents the text from wrapping */
-  overflow: hidden; /* Hide overflow */
-  text-overflow: ellipsis; /* Use ellipsis for text that overflows */
-  display: block; /* Ensures the element behaves as a block */
-  width: 100%; /* Makes the element span the full width */
+/* 所有 publication-title 的基础样式 */
+.title.publication-title {
+  font-family: 'Google Sans', sans-serif;
+  font-weight: 700;
+  white-space: normal;      /* 允许换行 */
+  overflow: visible;        /* 不截断 */
+  text-overflow: clip;
 }
+
+/* 主标题：SplatCo（h1） */
+.title.is-1.publication-title {
+  font-size: clamp(2rem, 3vw + 1rem, 2.8rem);
+  line-height: 1.15;
+}
+
+/* 超长副标题：论文全名（h2） */
+/* 自适应字号 + 自动换行 + 不会超出容器 */
+.title.is-2.publication-title.long-title {
+  font-size: clamp(1.4rem, 2vw + 1rem, 2.1rem);  /* 可以根据喜好微调 */
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;   /* 超长英文也能中间断开 */
+  word-break: break-word;
+  line-height: 1.2;
+}
+
+/* ============================= */
+/*        其他原有样式           */
+/* ============================= */
 
 .publication-banner {
   max-height: parent;
-
 }
 
 .publication-banner video {
@@ -54,35 +74,31 @@ body {
 .publication-header .hero-body {
 }
 
-.publication-title {
-    font-family: 'Google Sans', sans-serif;
-}
-
 .publication-authors {
-    font-family: 'Google Sans', sans-serif;
+  font-family: 'Google Sans', sans-serif;
 }
 
 .publication-venue {
-    color: #555;
-    width: fit-content;
-    font-weight: bold;
+  color: #555;
+  width: fit-content;
+  font-weight: bold;
 }
 
 .publication-awards {
-    color: #ff3860;
-    width: fit-content;
-    font-weight: bolder;
+  color: #ff3860;
+  width: fit-content;
+  font-weight: bolder;
 }
 
 .publication-authors {
 }
 
 .publication-authors a {
-   color: hsl(204, 86%, 53%) !important;
+  color: hsl(204, 86%, 53%) !important;
 }
 
 .publication-authors a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .author-block {
@@ -97,21 +113,21 @@ body {
 }
 
 .publication-video {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
 
-    overflow: hidden;
-    border-radius: 10px !important;
+  overflow: hidden;
+  border-radius: 10px !important;
 }
 
 .publication-video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .publication-body img {
@@ -133,7 +149,6 @@ body {
 .results-carousel video {
   margin: 0;
 }
-
 
 .interpolation-panel {
   background: #f5f5f5;
@@ -159,12 +174,13 @@ body {
 #interpolation-image-wrapper {
   width: 100%;
 }
+
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
 
 /* for recon list */
-li { 
+li {
   cursor: pointer;
 }
 
@@ -191,7 +207,7 @@ li {
 /* Create an active/current tablink class */
 .nav-tabs .nav-link.active {
   background-color: #5c7f17;
-  color:white;
+  color: white;
   font-weight: 500;
 }
 
@@ -199,6 +215,7 @@ li {
   color: #000;
   text-decoration: none;
 }
+
 .nav a:hover {
   color: #000;
   font-weight: 500;
@@ -208,6 +225,7 @@ li {
 .b-dics__slider {
   color: #f0f0f0;
 }
+
 .b-dics__slider:after {
   width: 2px;
 }
