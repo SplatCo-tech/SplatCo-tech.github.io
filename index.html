@@ -174,7 +174,7 @@
         <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Neural Radiance Fields (NeRFs) have achieved impressive results in novel view synthesis but are less suited for large-scale scene reconstruction due to their reliance on dense per-ray sampling, which limits scalability and efficiency. In contrast, 3D Gaussian Splatting (3DGS) offers a more efficient alternative to computationally intensive volume rendering, enabling faster training and real-time rendering. Although recent efforts have extended 3DGS to large-scale settings, these methods often struggle to balance global structural coherence with local detail fidelity. Crucially, they also suffer from Gaussian redundancy due to a lack of effective geometric constraints, which further leads to rendering artifacts. To address these challenges, we present SplatCo, a structure–view collaborative Gaussian splatting framework for high-fidelity rendering of complex outdoor scenes. SplatCo builds upon three novel components: (1) a Cross-Structure Collaboration Module (CSCM) that combines global tri-plane representations, which capture coarse scene layouts, with local context grid features that represent fine details. This fusion is achieved through the proposed hierarchical compensation mechanism, ensuring both global spatial awareness and local detail preservation; (2) a Cross-View Pruning Mechanism (CVPM) that prunes overfitted or inaccurate Gaussians based on structural consistency, thereby improving storage efficiency while avoiding Gaussian rendering artifacts; (3) a Structure–View Co-learning (SVC) Module that aggregates structural gradients with view gradients, redirecting the Gaussian geometric and appearance attribute optimization more robustly guided by additional structural gradient flow. By combining these key components, SplatCo effectively achieves high-fidelity rendering for large-scale scenes. Comprehensive evaluations on 13 diverse large-scale scenes, including Mill19, MatrixCity, Tanks & Temples, WHU, and custom aerial captures, demonstrate that SplatCo establishes a new benchmark for high-fidelity rendering of large-scale unbounded scenes.
+          Neural Radiance Fields (NeRFs) have achieved impressive results in novel view synthesis but are less suited for large-scale scene reconstruction due to their reliance on dense per-ray sampling, which limits scalability and efficiency. In contrast, 3D Gaussian Splatting (3DGS) offers a more efficient alternative to computationally intensive volume rendering, enabling faster training and real-time rendering. Although recent efforts have extended 3DGS to large-scale settings, these methods often struggle to balance global structural coherence with local detail fidelity. Crucially, they also suffer from Gaussian redundancy due to a lack of effective geometric constraints, which further leads to rendering artifacts. To address these challenges, we present SplatCo, a structure–view collaborative Gaussian splatting framework for high-fidelity rendering of complex outdoor scenes. SplatCo builds upon three novel components: (1) a Cross-Structure Collaboration Module (CSCM) that combines global tri-plane representations, which capture coarse scene layouts, with local context grid features that represent fine details. This fusion is achieved through the proposed hierarchical compensation mechanism, ensuring both global spatial awareness and local detail preservation; (2) a Cross-View Pruning Mechanism (CVPM) that prunes overfitted or inaccurate Gaussians based on structural consistency, thereby improving storage efficiency while avoiding Gaussian rendering artifacts; (3) a Structure–View Co-learning (SVC) Module that aggregates structural gradients with view gradients, redirecting the Gaussian geometric and appearance attribute optimization more robustly guided by additional structural gradient flow. By combining these key components, SplatCo effectively achieves high-fidelity rendering for large-scale scenes. Comprehensive evaluations on 13 diverse large-scale scenes, including Mill19, MatrixCity, Tanks \& Temples, WHU, and custom aerial captures, demonstrate that SplatCo establishes a new benchmark for high-fidelity rendering of large-scale unbounded scenes. Code and additional information are available at https://github.com/SCUT-BIP-Lab/SplatCo.
           </p>
         </div>
       </div>
@@ -209,7 +209,6 @@
 
       </div>
     </div>
-    <!--/ Animation. -->
 
   </div>
 </section>
@@ -326,20 +325,6 @@
 
   </div>
 </section>
-
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{zhang2024pixelgs,
-  title     = {Pixel-GS: Density Control with Pixel-aware Gradient for 3D Gaussian Splatting},
-  author    = {Zhang, Zheng and Hu, Wenbo and Lao, Yixing and He, Tong and Zhao, Hengshuang},
-  booktitle = {ECCV},
-  year      = {2024}
-}</code></pre>
-  </div>
-</section>
-
 
 
 <footer class="footer">
