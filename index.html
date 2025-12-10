@@ -151,13 +151,13 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-full-width">
       
-          <video class="video" width="100%" id="xyalias6" loop playsinline autoplay muted src="resources/video/flowers/video.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+          <video class="video" width="100%" id="xyalias6" loop playsinline autoplay muted src="src/videos/citygs-x_slatco.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
           <canvas height=0 class="videoMerge" id="xyalias6Merge"></canvas>
       
           <h2 class="subtitle has-text-centered" style="margin-top: 15px">
-            <b>3DGS* (left)</b> tends to exhibit blurring and needle-like artifacts in areas with insufficient point cloud initialization, <br>
-            while <b>Pixel-GS (right)</b> by considering the conditions for point cloud growth from the pixel perspective effectively models these areas. <br>
-            <b>*</b>  indicates retraining for better performance.
+            <b>CityGS-X* (left)</b> tends to , <br>
+            while <b>SplatCo (right)</b> . <br>
+            <b>*</b>  indicates retraining for for the same number of iterations.
           </h2>
         </div>
       </div>
@@ -174,8 +174,7 @@
         <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-          Neural Radiance Fields (NeRFs) have achieved impressive results in novel view synthesis but are less suited for large-scale scene reconstruction due to their reliance on dense per-ray sampling, which limits scalability and efficiency. In contrast, 3D Gaussian Splatting (3DGS) offers a more efficient alternative to computationally intensive volume rendering, enabling faster training and real-time rendering. Although recent efforts have extended 3DGS to large-scale settings, these methods often struggle to balance global structural coherence with local detail fidelity. Crucially, they also suffer from Gaussian redundancy due to a lack of effective geometric constraints, which further leads to rendering artifacts. To address these challenges, we present SplatCo, a structure–view collaborative Gaussian splatting framework for high-fidelity rendering of complex outdoor scenes. SplatCo builds upon three novel components: (1) a Cross-Structure Collaboration Module (CSCM) that combines global tri-plane representations, which capture coarse scene layouts, with local context grid features that represent fine details. This fusion is achieved through the proposed hierarchical compensation mechanism, ensuring both global spatial awareness and local detail preservation; (2) a Cross-View Pruning Mechanism (CVPM) that prunes overfitted or inaccurate Gaussians based on structural consistency, thereby improving storage efficiency while avoiding Gaussian rendering artifacts; (3) a Structure–View Co-learning (SVC) Module that aggregates structural gradients with view gradients, redirecting the Gaussian geometric and appearance attribute optimization more robustly guided by additional structural gradient flow. By combining these key components, SplatCo effectively achieves high-fidelity rendering for large-scale scenes. Comprehensive evaluations on 13 diverse large-scale scenes, including Mill19, MatrixCity, Tanks \& Temples, WHU, and custom aerial captures, demonstrate that SplatCo establishes a new benchmark for high-fidelity rendering of large-scale unbounded scenes. Code and additional information are available at https://github.com/SCUT-BIP-Lab/SplatCo.
-          </p>
+          Neural Radiance Fields (NeRFs) have achieved impressive results in novel view synthesis but are less suited for large-scale scene reconstruction due to their reliance on dense per-ray sampling, which limits scalability and efficiency. In contrast, 3D Gaussian Splatting (3DGS) offers a more efficient alternative to computationally intensive volume rendering, enabling faster training and real-time rendering. Although recent efforts have extended 3DGS to large-scale settings, these methods often struggle to balance global structural coherence with local detail fidelity. Crucially, they also suffer from Gaussian redundancy due to a lack of effective geometric constraints, which further leads to rendering artifacts. To address these challenges, we present SplatCo, a structure–view collaborative Gaussian splatting framework for high-fidelity rendering of complex outdoor scenes. SplatCo builds upon three novel components: (1) a Cross-Structure Collaboration Module (CSCM) that combines global tri-plane representations, which capture coarse scene layouts, with local context grid features that represent fine details. This fusion is achieved through the proposed hierarchical compensation mechanism, ensuring both global spatial awareness and local detail preservation; (2) a Cross-View Pruning Mechanism (CVPM) that prunes overfitted or inaccurate Gaussians based on structural consistency, thereby improving storage efficiency while avoiding Gaussian rendering artifacts; (3) a Structure–View Co-learning (SVC) Module that aggregates structural gradients with view gradients, redirecting the Gaussian geometric and appearance attribute optimization more robustly guided by additional structural gradient flow. By combining these key components, SplatCo effectively achieves high-fidelity rendering for large-scale scenes. Comprehensive evaluations on 13 diverse large-scale scenes, including Mill19, MatrixCity, Tanks \& Temples, WHU, and custom aerial captures, demonstrate that SplatCo establishes a new benchmark for high-fidelity rendering of large-scale unbounded scenes.
         </div>
       </div>
     </div>
@@ -200,10 +199,10 @@
       <div class="column is-full-width">
         <h2 class="title is-3" style="margin-top: -20px">Method</h2>
 
-        <img src="./resources/method.png" class="center">
+        <img src="./src/figs/fig1.jpg" class="center">
         <div class="content has-text-justified">
           <p style="margin-top: 30px">
-            <b>Pipeline of Pixel-GS.</b> \( \mathrm{p}_i \) represents the number of pixels participating in the calculation for the Gaussian from this viewpoint, and \( \mathbf{g}_i \) represents the gradient of the Gaussian's NDC coordinates. We changed the condition for deciding whether a Gaussian should split or clone from the left to the right side.
+            <b>Overview of SplatCo.</b> we first introduce the CSCM, which integrates multi-scale tri-planes and context-aware grids to generate Hierarchical Dense Embedded features \(f_h\), simultaneously ensuring global coherence and local detail preservation. Subsequently, the CVPM maintains integrity by employing a Cross-View Consistency Loss \(L_{CVC}\) and a geometric consistency-based pruning mechanism to reduce redundancy. Finally, the SVC module combines structural and view-dependent gradients for robust joint optimization.
           </p>
         </div>
 
