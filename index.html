@@ -174,7 +174,7 @@
         <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-          Neural Radiance Fields (NeRFs) have achieved impressive results in novel view synthesis but are less suited for large-scale scene reconstruction due to their reliance on dense per-ray sampling, which limits scalability and efficiency. In contrast, 3D Gaussian Splatting (3DGS) offers a more efficient alternative to computationally intensive volume rendering, enabling faster training and real-time rendering. Although recent efforts have extended 3DGS to large-scale settings, these methods often struggle to balance global structural coherence with local detail fidelity. Crucially, they also suffer from Gaussian redundancy due to a lack of effective geometric constraints, which further leads to rendering artifacts. To address these challenges, we present SplatCo, a structure–view collaborative Gaussian splatting framework for high-fidelity rendering of complex outdoor scenes. SplatCo builds upon three novel components: (1) a Cross-Structure Collaboration Module (CSCM) that combines global tri-plane representations, which capture coarse scene layouts, with local context grid features that represent fine details. This fusion is achieved through the proposed hierarchical compensation mechanism, ensuring both global spatial awareness and local detail preservation; (2) a Cross-View Pruning Mechanism (CVPM) that prunes overfitted or inaccurate Gaussians based on structural consistency, thereby improving storage efficiency while avoiding Gaussian rendering artifacts; (3) a Structure–View Co-learning (SVC) Module that aggregates structural gradients with view gradients, redirecting the Gaussian geometric and appearance attribute optimization more robustly guided by additional structural gradient flow. By combining these key components, SplatCo effectively achieves high-fidelity rendering for large-scale scenes. Comprehensive evaluations on 13 diverse large-scale scenes, including Mill19, MatrixCity, Tanks \& Temples, WHU, and custom aerial captures, demonstrate that SplatCo establishes a new benchmark for high-fidelity rendering of large-scale unbounded scenes.
+          Neural Radiance Fields (NeRFs) have achieved impressive results in novel view synthesis but are less suited for large-scale scene reconstruction due to their reliance on dense per-ray sampling, which limits scalability and efficiency. In contrast, 3D Gaussian Splatting (3DGS) offers a more efficient alternative to computationally intensive volume rendering, enabling faster training and real-time rendering. Although recent efforts have extended 3DGS to large-scale settings, these methods often struggle to balance global structural coherence with local detail fidelity. Crucially, they also suffer from Gaussian redundancy due to a lack of effective geometric constraints, which further leads to rendering artifacts. To address these challenges, we present SplatCo, a structure–view collaborative Gaussian splatting framework for high-fidelity rendering of complex outdoor scenes. SplatCo builds upon three novel components: (1) a Cross-Structure Collaboration Module (CSCM) that combines global tri-plane representations, which capture coarse scene layouts, with local context grid features that represent fine details. This fusion is achieved through the proposed hierarchical compensation mechanism, ensuring both global spatial awareness and local detail preservation; (2) a Cross-View Pruning Mechanism (CVPM) that prunes overfitted or inaccurate Gaussians based on structural consistency, thereby improving storage efficiency while avoiding Gaussian rendering artifacts; (3) a Structure–View Co-learning (SVC) Module that aggregates structural gradients with view gradients, redirecting the Gaussian geometric and appearance attribute optimization more robustly guided by additional structural gradient flow. By combining these key components, SplatCo effectively achieves high-fidelity rendering for large-scale scenes. Comprehensive evaluations on 13 diverse large-scale scenes, including Mill19, MatrixCity, Tanks & Temples, WHU, and custom aerial captures, demonstrate that SplatCo establishes a new benchmark for high-fidelity rendering of large-scale unbounded scenes.
         </div>
       </div>
     </div>
@@ -222,102 +222,17 @@
 <section class="section">
   <div class="container is-max-desktop">
 
-    <!-- Results. -->
-    <div class="columns is-centered ">
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Results</h2>
+        <h2 class="title is-3" style="margin-top: -20px">Results</h2>
 
-        <h3 class="title is-4">Comparison wtih 3DGS</h3>
-        
+        <img src="./src/figs/fig1.jpg" class="center">
         <div class="content has-text-justified">
-          <p>
-            Here, we present the qualitative comparison results of 3DGS*, Pixel-GS (Ours), and Ground Truth.
+          <p style="margin-top: 30px">
+            <b>Overview of SplatCo.</b> we first introduce the CSCM, which integrates multi-scale tri-planes and context-aware grids to generate Hierarchical Dense Embedded features \(f_h\), simultaneously ensuring global coherence and local detail preservation. Subsequently, the CVPM maintains integrity by employing a Cross-View Consistency Loss \(L_{CVC}\) and a geometric consistency-based pruning mechanism to reduce redundancy. Finally, the SVC module combines structural and view-dependent gradients for robust joint optimization.
           </p>
         </div>
-
-        <div class="container">
-          <ul class="nav nav-tabs nav-fill nav-justified" id="object-scale-recon">
-              <li class="nav-item">
-                <a class="nav-link" onclick="objectSceneEvent(0)">stump</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="objectSceneEvent(1)">bicycle</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="objectSceneEvent(2)">treehill</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="objectSceneEvent(3)">flowers</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" onclick="objectSceneEvent(4)">caterpillar</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="objectSceneEvent(5)">barn</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="objectSceneEvent(6)">playground</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="objectSceneEvent(7)">train</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="objectSceneEvent(8)">truck</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="objectSceneEvent(9)">m60</a>
-              </li>
-          </ul>
-          <div class="b-dics" style="width: 2600px; font-weight: 800;">
-            <img src="resources/image/caterpillar/3dgs.png" alt="3DGS*">
-            <img src="resources/image/caterpillar/ours.png" alt="Ours">
-            <img src="resources/image/caterpillar/gt.png" alt="GT">
-        </div>
-        </div>
-
-
-        <h3 class="title is-4" style="margin-top: 60px;">Drop a certain proportion of the initial point cloud.</h3>
-        
-        <div class="content has-text-justified">
-          <p>
-            Randomly discard a certain proportion of the SFM point cloud points for scene initialization. The figure below shows the comparison of the reconstruction results for the bicycle scene from the Mip-NeRF 360 dataset between 3DGS, Pixel-GS (Ours) and Ground Truth.
-          </p>
-        </div>
-
-        <div class="container">
-          <ul class="nav nav-tabs nav-fill nav-justified" id="dropobject-scale-recon">
-              <li class="nav-item">
-                <a class="nav-link" onclick="dropobjectSceneEvent(0)">00%</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="dropobjectSceneEvent(1)">10%</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="dropobjectSceneEvent(2)">30%</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" onclick="dropobjectSceneEvent(3)">50%</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="dropobjectSceneEvent(4)">70%</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="dropobjectSceneEvent(5)">90%</a>
-              </li>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" onclick="dropobjectSceneEvent(6)">99%</a>
-            </li>
-
-          </ul>
-          <div class="b-dics" style="width: 2600px; font-weight: 800;">
-            <img src="resources/drop/3dgs/50/00019.png" alt="3DGS*">
-            <img src="resources/drop/ours/50/00019.png" alt="Ours">
-            <img src="resources/drop/gt/50/00019.png" alt="GT">
-        </div>
-        </div>
-
-
 
       </div>
     </div>
