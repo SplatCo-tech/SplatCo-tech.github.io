@@ -222,16 +222,28 @@
 <section class="section">
   <div class="container is-max-desktop">
 
-    <!-- Method. -->
+    <!-- Results. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
         <h2 class="title is-3" style="margin-top: -20px">Results</h2>
 
-        <img src="./src/figs/fig1.jpg" class="center">
+        <img src="./src/figs/fig_mill.jpg" class="center">
         <div class="content has-text-justified">
           <p style="margin-top: 30px">
-            <b>Overview of SplatCo.</b> we first introduce the CSCM, which integrates multi-scale tri-planes and context-aware grids to generate Hierarchical Dense Embedded features \(f_h\), simultaneously ensuring global coherence and local detail preservation. Subsequently, the CVPM maintains integrity by employing a Cross-View Consistency Loss \(L_{CVC}\) and a geometric consistency-based pruning mechanism to reduce redundancy. Finally, the SVC module combines structural and view-dependent gradients for robust joint optimization.
+            <b>Qualitative comparison of our method with existing advanced techniques on the MatrixCity and Mill-19 datasets.</b>\textcolor{red}{Red} boxes are used to highlight visual differences. As illustrated, in the building scene, our method achieves high-fidelity fine-grained reconstruction of complex textures, such as the exterior of solar panels, surpassing other methods. Please \textbf{\emph{zoom in}} for more detailed visual results.
           </p>
+        </div>
+
+        <img src="./src/figs/fig_scut_ca.jpg" class="center">
+        <div class="content has-text-justified">
+          <p style="margin-top: 30px">
+            <b>Visualization results on our custom SCUT_CA dataset. </b>Highlighted regions (e.g., \textcolor{red}{red} boxes) reveal that our method renders significantly finer details and more realistic textures for elements such as leaves, lane markings, and distant objects, underscoring its superiority over competing approaches.
+        </div>
+
+        <img src="./src/figs/fig_WHU.jpg" class="center">
+        <div class="content has-text-justified">
+          <p style="margin-top: 30px">
+            <b>Results on the WHU dataset and plateau region scenes. </b>Our method achieves highly realistic modeling of broad scene structures and precise capture of fine surface details. For instance, 'area1' showcases more authentic land and road structures. Simultaneously, our method accurately delineates subtle features like the distribution of vegetation on plateaus and the complex surface textures of sandy terrains, demonstrating superior structural awareness and detail retrieval.
         </div>
 
       </div>
@@ -253,8 +265,7 @@
             Commons Attribution-ShareAlike 4.0 International License</a>.
             Website template credit to <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. 
             We also incorporated design elements from <a href="https://niujinshuchong.github.io/mip-splatting/">Mip-Splatting</a>.
-            The video comparison with sliding bar is from <a href="https://dorverbin.github.io/refnerf/">Ref-NeRF</a>. 
-            The image comparison with sliding bar is from <a href="https://research.nvidia.com/labs/dir/neuralangelo/">Neuralangelo</a>. 
+            The video comparison with sliding bar is from <a href="https://dorverbin.github.io/refnerf/">Ref-NeRF</a>.  
           </p>
         </div>
       </div>
