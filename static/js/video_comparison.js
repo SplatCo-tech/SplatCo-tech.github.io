@@ -117,7 +117,7 @@ function resizeAndPlay(element) {
 
   // ====== 控制页面上“看起来”的大小 ======
   // 最大显示宽度（你可以改成 480、720 等）
-  var MAX_DISPLAY_WIDTH = 480;
+  var MAX_DISPLAY_WIDTH = 580;
 
   // 找一下外层容器的宽度，避免超出容器
   var container = element.parentElement; // <div class="column is-full-width">
