@@ -19,6 +19,7 @@ body {
 .teaser .hero-body {
   padding-top: 0;
   padding-bottom: 3rem;
+  max-width: 500px;
 }
 
 .teaser {
@@ -260,10 +261,3 @@ li {
   margin-right: 8px;
 }
 
-.teaser-video {
-  display: block;
-  width: 80%;          /* 在小屏上占满容器宽度 */
-  max-width: 640px;     /* 最大宽度 640px，可以根据喜好调整，比如 480px/720px */
-  margin: 0 auto;       /* 居中 */
-  height: auto !important;
-}
