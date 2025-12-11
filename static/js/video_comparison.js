@@ -7,8 +7,8 @@ function playVids(videoId) {
     var vid = document.getElementById(videoId);
 
     var position = 0.5;
-    var vidWidth = vid.videoWidth/3;
-    var vidHeight = vid.videoHeight/1.5;
+    var vidWidth = vid.videoWidth/2;
+    var vidHeight = vid.videoHeight;
 
     var mergeContext = videoMerge.getContext("2d");
 
@@ -105,13 +105,39 @@ Number.prototype.clamp = function(min, max) {
 };
     
     
-function resizeAndPlay(element)
-{
+function resizeAndPlay(element) {
   var cv = document.getElementById(element.id + "Merge");
-  cv.width = element.videoWidth/3;
-  cv.height = element.videoHeight/1.5;
+
+  // 内部绘制用的原始尺寸（不影响显示的视觉大小）
+  var intrinsicWidth = element.videoWidth / 2;   // 左右拼接的视频取一半
+  var intrinsicHeight = element.videoHeight;
+
+  cv.width = intrinsicWidth;
+  cv.height = intrinsicHeight;
+
+  // ====== 控制页面上“看起来”的大小 ======
+  // 最大显示宽度（你可以改成 480、720 等）
+  var MAX_DISPLAY_WIDTH = 480;
+
+  // 找一下外层容器的宽度，避免超出容器
+  var container = element.parentElement; // <div class="column is-full-width">
+  var containerWidth = container ? container.clientWidth : intrinsicWidth;
+
+  var displayWidth = Math.min(MAX_DISPLAY_WIDTH, containerWidth, intrinsicWidth);
+  var displayHeight = displayWidth * (intrinsicHeight / intrinsicWidth);
+
+  // 用 CSS 控制 canvas 的显示大小（内部仍然是高分辨率）
+  cv.style.width = displayWidth + "px";
+  cv.style.height = displayHeight + "px";
+  cv.style.display = "block";
+  cv.style.margin = "0 auto";   // 居中
+
+  // 隐藏掉 video（只用来提供帧，不用来显示）
   element.play();
-  element.style.height = "0px";  // Hide video without stopping it
-    
+  element.style.height = "0px";
+  element.style.width = "0px";
+  element.style.display = "none";
+
   playVids(element.id);
 }
+
