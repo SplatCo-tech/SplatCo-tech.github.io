@@ -102,19 +102,9 @@
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
+              
               <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-
-              <span class="link-block">
-                <a href="0"
+                <a href="https://arxiv.org/abs/2505.17951"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -151,13 +141,20 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-full-width">
       
-          <video class="video" width="60%" id="xyalias6" loop playsinline autoplay muted src="src/videos/citygs-x_splatco.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
-          <canvas height=0 class="videoMerge" id="xyalias6Merge"></canvas>
+          <video
+            class="video teaser-video"
+            id="xyalias6"
+            loop
+            playsinline
+            autoplay
+            muted
+            src="src/videos/citygs-x_splatco.mp4"
+            onplay="resizeAndPlay(this)"
+        ></video>
+        <canvas height=0 class="videoMerge" id="xyalias6Merge"></canvas>
       
           <h2 class="subtitle has-text-centered" style="margin-top: 15px">
-            <b>CityGS-X* (left)</b> produce fragmented building structures and inconsistent texture details, <br>
-            while <b>SplatCo (right)</b> not only reconstructs more coherent scene structures but also renders more realistic fine details. <br>
-            <b>*</b>  indicates retraining for for the same number of iterations.
+            Compared with <b>CityGS-X* (left)</b>, <b>SplatCo (right)</b> renders more realistic fine details. <b>*</b> indicates retraining for the same number of iterations.
           </h2>
         </div>
       </div>
